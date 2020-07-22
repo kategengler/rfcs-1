@@ -30,19 +30,58 @@ This proposal aims to build on the success of RFC 300, [RFC (Request for Comment
 
 A successful RFC can move through the following stages. Whenever an RFC moves to the next stage, there is a PR to update it.
 
-| Stage| Description| Criteria to advance to next step | Requires FCP to enter? |
+| Stage| Description| Criteria to enter | Requires FCP to enter? |
 | -----| -----------|----------------------------------| ----- |
-| Proposed | A pull request made to the RFC repository which is open for public comment and core team evaluation. | "The RFC has been in Final Comment Period, and the relevant core team has consensus to merge it, thus accepting the proposal." | no |
-| Exploring | The core team believes the RFC should be pursued right now, but the RFC may still need some more work, discussion, and/or a champion before it can move to the next stage. | The RFC is fully specified, and it is clear who will support the implementation. If there are unanswered questions, we have outlined them and expect that they will be answered before "Ready for Release." | no |
-| Accepted | "The work to integrate the proposal into Ember's codebases or materials may begin. An "Accepted" RFC is not necessary in-progress." | "The technical implementation is complete according to plan outlined in the RFC, and is in harmony with any changes in Ember that have occurred since the RFC was first written." | yes |
-| Ready for Release | "The relevant core team reviews the work to determine when it can be included in a stable release. At this stage, features or deprecations may be available for use behind a feature flag, in beta, etc. This is also a time to queue up learning materials, for example." | "The relevant core teams coordinate to include the work in a stable release, and/or publish the materials. If there are any truly critical deviations from the original RFC, they are briefly noted at the top of the RFC." | yes |
-| Released | "The work is published. If it is codebase-related work, it adheres to SemVer from this point onward." | If it is a codebase change, it is well documented and has clear migration paths. It is consistent with Ember's mental models." | no |
-| Recommended | The feature/resource is recommended for general use. | n/a | yes |
+| Proposed | A pull request made to the RFC repository which is open for evaluation. | n/a -- anybody can create an RFC PR | no |
+| Exploring | An RFC deemed worth pursuing but in need of more work. | The core team believes the RFC should be pursued, but the RFC may still need some more work, discussion, and/or a champion before it can move to the next stage. | no |
+| Accepted | The direction of work has been determined. An "Accepted" RFC is not necessary in-progress. | The RFC is fully specified, and it is clear who will support the implementation. If there are unanswered questions, we have outlined them and expect that they will be answered before "Ready for Release." The RFC has been in Final Comment Period, and the relevant core team has consensus to merge it, thus accepting the proposal. | yes |
+| Ready for Release | The implementation of the RFC is complete. | The teams review the work to determine when it can be included in a stable release. At this stage, features or deprecations may be available for use behind a feature flag, in beta, etc. This is also the time ensure learning materials have been prepared. Today, this would be the "go/no-go" decision by a particular team. The technical implementation is complete according to plan outlined in the RFC, and is in harmony with any changes in Ember that have occurred since the RFC was first written. | yes |
+| Released | The work is published. If it is codebase-related work, it is in a stable version of the relevant package(s). |  The relevant core teams coordinate to include the work in a stable release, and/or publish the materials. If there are any critical deviations from the original RFC, they are briefly noted at the top of the RFC. | no |
+| Recommended | The feature/resource is recommended for general use. | If it is a codebase change, it is well documented and has clear migration paths. It is consistent with Ember's mental models. | yes |
 
 There are two additional statuses for RFCs that will not move forward:
 
 - **Discontinued** - a previously Accepted RFC that is either in conflict with Ember's evolving programming model or is superseded by another active RFC.
-- **Closed** - Proposed RFCs that will not be moved into the next stage.
+- **Closed** - Proposed RFCs that will not be moved into the next stage. // TODO: Should this require FCP?
+
+#### Proposed
+
+Proposed RFCs are opened as pull requests to the RFC repository. Anybody make 
+create an RFC. The format should follow the templates in the RFC repository. 
+There is currently a default template and a deprecation RFC template. This 
+process is discussed in depth in the RFC repo README.
+
+An RFC's number is the number of it's original proposal PR.
+
+From "proposed" an RFC may be "FCP to close" or "FCP to Accept" or be 
+moved to the "Exploring" stage.
+
+#### Closed
+
+A proposed RFC may be closed after an FCP period. This is the same as in the 
+current process.
+
+#### Exploring
+
+#### Accepted
+
+An RFC that has been "accepted" has complete prose and has sat through an 
+"FCP to Accept" period. The community has weighed in and consensus has been 
+achieved on the direction. The RFC has a champion within one of the relevant 
+core team(s). This is equivalent to today's RFCs being merged.
+
+#### Ready for Release
+
+The RFC has been implemented, any relevant learning materials work has been done. 
+
+
+#### Released
+
+#### Recommended
+
+
+#### Discontinued
+
 
 ### FCP
 
@@ -56,7 +95,7 @@ A merged RFC may be edited via a Pull Request process. Edits may include things 
 - An optional note at the top that summarizes minor adjustments to the RFC design, at the time that the RFC's work became available for general use. This note can be very brief, and link out to other resources like a blog post. For example, an update might simply say "See `<blog post>` for more information about this feature." This note is not intended to be updated across time.
 - Updating any part of the RFC prose, in order to keep a written record of the changes and rationale.
 
-These edits are reviewed and merged by the relevant core team. Today, these types of changes do happen. We just don't write them down. So, merge criteria should be very loose.
+Today, these types of changes do happen. We just don't write them down. So, merge criteria should be very loose.
 
 Major changes should have a new RFC. The old RFC is later marked "Discontinued" when the replacement is merged. 
 
@@ -141,7 +180,7 @@ Making updates to past RFCs can generate a lot of  GitHub notifications for peop
 
 ## Alternatives/State of the Art
 
-This section will cover how other projects have handled this type of tracking, and how we have done it in the past.
+This section covers how other projects have handled this type of tracking, and how we have done it in the past.
 
 ## Vue
 
