@@ -26,5 +26,5 @@ jobs:
       - name: Test RFC Filename matches PR Number that adds it
         env:
           PR_NUMBER: ${{ github.event.pull_request.number }}
-        run: node check-filename-matchs-pr.js $PR_NUMBER ${{ steps.files.outputs.added }}
+        run: node check-filename-matches-pr.js $PR_NUMBER ${{ steps.files.outputs.added }}
         working-directory: rfcs-tooling
