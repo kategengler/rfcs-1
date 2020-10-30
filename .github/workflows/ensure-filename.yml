@@ -27,3 +27,4 @@ jobs:
         env:
           PR_NUMBER: ${{ github.event.pull_request.number }}
         run: node check-filename-matchs-pr.js $PR_NUMBER ${{ steps.files.outputs.added }}
+        working-directory: rfcs-tooling
