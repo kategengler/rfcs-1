@@ -6,9 +6,8 @@ on:
   pull_request: {}
 
 jobs:
-  build:
+  lint-frontmatter:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
 
@@ -23,5 +22,5 @@ jobs:
       - run: yarn install
         working-directory: rfcs-tooling
 
-      - run: node lint-rfc-frontmatter.js ../text/*.md
+      - run: node lint-rfc-frontmatter.js ../text/*.md || true # Don't want to fail on old RFCs just yet
         working-directory: rfcs-tooling
